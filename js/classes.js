@@ -13,18 +13,28 @@ class Sprite {
         this.offset = offset
     }
 
-    draw() {
-        c.drawImage(
+    draw(flip) {
+        let x =  this.framesCurrent * (this.image.width / this.framesMax);
+        let width = this.image.width / this.framesMax;
+
+        let xOffset = this.position.x - this.offset.x;
+        canvasContext.save();
+        if(flip){
+            canvasContext.scale(-1,1);
+            xOffset = - this.position.x - this.offset.x;
+        }
+        canvasContext.drawImage(
             this.image, 
-            this.framesCurrent* (this.image.width / this.framesMax),
+            x,
             0,
-            this.image.width / this.framesMax,
+            width,
             this.image.height,
-            this.position.x - this.offset.x, 
+            xOffset, 
             this.position.y - this.offset.y, 
             (this.image.width / this.framesMax) * this.scale, 
             this.image.height * this.scale
         )
+             canvasContext.restore()
    }
 
    animateFrames(){
@@ -59,7 +69,8 @@ class Fighter extends Sprite{
             offset: {},
             width: undefined,
             height: undefined
-        }
+        },
+        width = 50,
     }) {
         super({
             position,
@@ -70,7 +81,7 @@ class Fighter extends Sprite{
         })
 
         this.velocity = velocity
-        this.width = 50
+        this.width = width
         this.height = 150
         this.lastKey
         this.attackBox = {
@@ -97,15 +108,23 @@ class Fighter extends Sprite{
         }
     }
 
-
+//    facingRight = true;
 
    update() {
-    this.draw()
+    player.draw()
+    enemy.draw(true)
     if (!this.dead) this.animateFrames()
 
     //attack boxes
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x
     this.attackBox.position.y = this.position.y + this.attackBox.offset.y
+    canvasContext.fillStyle = 'black'
+    canvasContext.fillRect(this.attackBox.position.x, this.attackBox.position.y,this.attackBox.width, this.attackBox.height)
+
+    canvasContext.fillStyle = 'white'
+    canvasContext.fillRect(this.position.x, this.position.y,this.width, this.height)
+    
+
 
     this.position.x += this.velocity.x
     this.position.y += this.velocity.y
