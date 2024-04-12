@@ -71,6 +71,7 @@ class Fighter extends Sprite{
             height: undefined
         },
         width = 50,
+        attackFrames
     }) {
         super({
             position,
@@ -101,6 +102,7 @@ class Fighter extends Sprite{
         this.framesHold = 5
         this.sprites = sprites
         this.dead = false
+        this.attackFrames = attackFrames
 
         for (const sprite in this.sprites){
             sprites[sprite].image = new Image()
@@ -118,11 +120,14 @@ class Fighter extends Sprite{
     //attack boxes
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x
     this.attackBox.position.y = this.position.y + this.attackBox.offset.y
-    canvasContext.fillStyle = 'black'
-    canvasContext.fillRect(this.attackBox.position.x, this.attackBox.position.y,this.attackBox.width, this.attackBox.height)
+    
+    //fill hitbox
+    //canvasContext.fillStyle = 'black'
+    //canvasContext.fillRect(this.attackBox.position.x, this.attackBox.position.y,this.attackBox.width, this.attackBox.height)
 
-    canvasContext.fillStyle = 'white'
-    canvasContext.fillRect(this.position.x, this.position.y,this.width, this.height)
+    //fill attackbox
+    //canvasContext.fillStyle = 'white'
+    //canvasContext.fillRect(this.position.x, this.position.y,this.width, this.height)
     
 
 

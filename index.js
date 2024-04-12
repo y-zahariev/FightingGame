@@ -26,12 +26,12 @@ const shop = new Sprite({
     framesMax: 6
 })
 
-const player = pickCharacter('crystalMauler')
-const enemy = pickCharacter('samuraiMack')
+const player = pickCharacter('waterPriestess')
+const enemy = pickCharacter('windHashashin')
 enemy.position.x = 800;
 player.position.x = 200;
-enemy.offset.x += 75;
-enemy.attackBox.offset.x = enemy.position.x - enemy.offset.x - enemy.attackBox.offset.x
+enemy.offset.x += enemy.width;
+enemy.attackBox.offset.x -= enemy.width + enemy.attackBox.width ;
 
 const keys = {
     a: {
@@ -111,7 +111,7 @@ function animate(){
             rectangle2:enemy
         }) &&
         player.isAttacking && 
-        player.framesCurrent === 4
+        player.framesCurrent === player.attackFrames
     ) {
         enemy.takeHit()
         player.isAttacking = false
@@ -122,7 +122,7 @@ function animate(){
     }
 
     //if player misses
-    if(player.isAttacking && player.framesCurrent === 4) {
+    if(player.isAttacking && player.framesCurrent === player.attackFrames) {
         player.isAttacking = false
     }
 
@@ -133,7 +133,7 @@ function animate(){
             rectangle2:player
         }) &&
         enemy.isAttacking && 
-        enemy.framesCurrent === 2
+        enemy.framesCurrent === enemy.attackFrames
     ) {
         player.takeHit()
         enemy.isAttacking = false
@@ -143,7 +143,7 @@ function animate(){
     }
 
     //if enemy misses
-    if(enemy.isAttacking && enemy.framesCurrent === 2) {
+    if(enemy.isAttacking && enemy.framesCurrent === enemy.attackFrames) {
         enemy.isAttacking = false
     }
 
