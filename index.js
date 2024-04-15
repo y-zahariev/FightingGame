@@ -1,10 +1,10 @@
-const canvas = document.querySelector('canvas');
-const canvasContext = canvas.getContext('2d');
+ const canvas = document.querySelector('#fightScene');
+ const canvasContext = canvas.getContext('2d');
 
-canvas.width = 1024;
-canvas.height = 576;
+ canvas.width = 1024;
+ canvas.height = 576;
 
-canvasContext.fillRect(0, 0, canvas.width, canvas.height)
+ canvasContext.fillRect(0, 0, canvas.width, canvas.height)
 
 const gravity = 0.7
 
@@ -26,8 +26,8 @@ const shop = new Sprite({
     framesMax: 6
 })
 
-const player = pickCharacter('waterPriestess')
-const enemy = pickCharacter('windHashashin')
+const player = pickCharacter(localStorage.getItem('player1'))
+const enemy = pickCharacter(localStorage.getItem('player2'))
 enemy.position.x = 800;
 player.position.x = 200;
 enemy.offset.x += enemy.width;

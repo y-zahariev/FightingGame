@@ -1,0 +1,139 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        table {
+            border-spacing: 0px;
+        }
+
+        th, td {
+            border: 3px solid rgba(255, 255, 255, 0);
+        }
+
+        tr:last-child{
+            border-right: none;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+
+        button{
+            width: 120px;
+            height: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <div style="position: absolute; display: inline-block;">     
+        <div style="position: absolute; display: flex; flex-wrap: wrap; flex-direction: row; width:-webkit-fill-available; height: -webkit-fill-available;">
+            <div style="
+                position: relative; 
+                display: flex;
+                flex: 100%
+            ">
+                <div style=" 
+                    position: relative; 
+                    flex: 50%;
+                    width: 50%;
+                    padding: 20px;
+                    color: antiquewhite;
+                    margin-left: 50px;
+                    align-content: flex-end;
+                "> Player One
+                </div>
+                <div style="
+                    position: relative;
+                    flex: 50%;
+                    width: 50%;
+                    padding: 20px;
+                    color: antiquewhite;
+                    margin-right: 50px;
+                    align-content: flex-end;
+                    text-align: end;
+                "> Player Two
+                </div>           
+            </div>          
+            <div  style="
+                position: relative;
+                flex: 50%;
+                width: 50%;
+                padding: 20px; 
+                align-content: center;          
+            ">
+                <table id="playerOneTable">
+                    <tr>
+                        <td><img src="img\CrystalMauler\crystal_mauler.png" alt="crystalMauler"></td>
+                        <td><img src="img\FireKnight\fire_knight.png" alt="fireKnight"></td>
+                        <td><img src="img\GroundMonk\ground_monk.png" alt="groundMonk"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img\LeafRanger\leaf_ranger.png" alt="leafRanger"></td>
+                        <td><img src="img\MetalBladekeeper\metal_bladekeeper.png" alt="metalBladekeeper"></td>
+                        <td><img src="img\WaterPriestess\water_priestess.png" alt="waterPriestess"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img\WindHashashin\wind_hashashin.png" alt="windHashashin"></td>
+                        <td><img src="img\kenji\VikingPortrait.png" alt="Viking"></td>
+                        <td><img src="img\kenji\Spearwoman_Portrait.png" alt="Spearwoman"></td>
+                    </tr>
+                </table>
+                
+            </div>
+            <div style="
+                position: relative;
+                flex: 50%;
+                width: 50%;
+                padding: 20px;
+                align-content: center;
+                text-align: -webkit-right;
+            ">
+                <table id="playerTwoTable">
+                    <tr>
+                        <td><img src="img\CrystalMauler\crystal_mauler.png" alt="crystalMauler"></td>
+                        <td><img src="img\FireKnight\fire_knight.png" alt="fireKnight"></td>
+                        <td><img src="img\GroundMonk\ground_monk.png" alt="groundMonk"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img\LeafRanger\leaf_ranger.png" alt="leafRanger"></td>
+                        <td><img src="img\MetalBladekeeper\metal_bladekeeper.png" alt="metalBladekeeper"></td>
+                        <td><img src="img\WaterPriestess\water_priestess.png" alt="waterPriestess"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img\WindHashashin\wind_hashashin.png" alt="windHashashin"></td>
+                        <td><img src="img\kenji\VikingPortrait.png" alt="Viking"></td>
+                        <td><img src="img\kenji\Spearwoman_Portrait.png" alt="Spearwoman"></td>
+                    </tr>
+                </table>
+            </div>
+            <div  style="
+                position: relative; 
+                display: flex; 
+                width: 100%; 
+                align-items: flex-start;
+                justify-content: center;
+                ">
+                    <button 
+                        style="position: relative;" 
+                        onclick="window.location.href= playUrl"
+                    >Play</button>
+            </div>  
+        </div>                
+        <canvas id="menu"></canvas>  
+            
+    </div>
+
+    <script src="js/characters.js"></script>
+    <script src="js/playerConsts.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="js/menuConsts.js"></script>
+    <script src="menu.js"></script>
+</body>
