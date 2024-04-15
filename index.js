@@ -26,6 +26,15 @@ const shop = new Sprite({
     framesMax: 6
 })
 
+if (sessionStorage.getItem('loadedOnce') === 'true') {
+    // Redirect to page 2 because this is a refresh
+    window.location.href = menuUrl;
+    sessionStorage.setItem('loadedOnce', 'false');
+} else {
+    // Mark page as loaded once
+    sessionStorage.setItem('loadedOnce', 'true');
+}
+
 const player = pickCharacter(localStorage.getItem('player1'))
 const enemy = pickCharacter(localStorage.getItem('player2'))
 enemy.position.x = 800;

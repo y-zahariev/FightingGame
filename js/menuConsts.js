@@ -11,6 +11,7 @@ var isPl1Picked = false
 var isPl2Picked = false
 
 const playUrl = './index.html'
+const menuUrl = './menu.html'
 
 const Direction = {
     Up: 'Up',
